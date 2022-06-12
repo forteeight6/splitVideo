@@ -10,15 +10,12 @@ def cutter(function) -> None:
     slic = [[initial_time, final_time]]
     
     try:
-        print("Deu certo")
-        """
         sv.splitVideo(
             op=True,
             origem=origin,
             destino=dest,
             slices=slic
         )
-        """
     finally:
         log.info("Cortado com sucesso!")
         

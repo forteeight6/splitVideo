@@ -1,3 +1,21 @@
+from os import walk, path, remove
+import tempfile
+
+def new_tempfile():
+    tempfile.tempdir = "cache"
+    try:
+        file = tempfile.NamedTemporaryFile(delete=False)
+    finally:
+        file.close()
+        
+    return file.name
+        
+def reset_tempfiles():
+    for root, files, docs in walk("cache"):
+        for doc in docs:
+            rmv = path.join(root, doc)
+            remove(rmv)
+        
 def convert_time_to_seconds(time):
 
     splitted_time = time.split(":")
