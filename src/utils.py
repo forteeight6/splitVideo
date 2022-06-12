@@ -1,6 +1,7 @@
 from os import walk, path, remove
 import tempfile
 
+
 def new_tempfile():
     tempfile.tempdir = "cache"
     try:
@@ -8,6 +9,34 @@ def new_tempfile():
     finally:
         file.close()
         
+    return file.name
+    
+    
+def new_tempfile_with_prefix(pre:str):
+    tempfile.tempdir = "cache"
+    try:
+        file = tempfile.NamedTemporaryFile(prefix=pre, delete=False)
+    finally:
+        file.close()
+    
+    return file.name
+
+def new_tempfile_with_suffix(suf:str):
+    tempfile.tempdir = "cache"
+    try:
+        file = tempfile.NamedTemporaryFile(suffix=suf, delete=False)
+    finally:
+        file.close()
+    
+    return file.name
+
+def new_tempfile_with_prefix_and_suffix(pre:str, suf:str):
+    tempfile.tempdir = "cache"
+    try:
+        file = tempfile.NamedTemporaryFile(prefix=pre, suffix=suf, delete=False)
+    finally:
+        file.close()
+    
     return file.name
         
 def reset_tempfiles():
