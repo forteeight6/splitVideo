@@ -1,8 +1,10 @@
+from pytest import mark
 from src.dynamic_splitVideo import cutter
 import logging as log
 log.basicConfig(level=log.DEBUG, filename="log.log")
 
-@cutter # cutter(test_input())
+@mark.skip(reason="teste manual")
+# @cutter # cutter(test_input()) # tive que comentar para skipar
 def test_main() -> list:
     """
         Substituindo entradas dinamica por entradas estaticas.

@@ -15,7 +15,7 @@ def new_tempfile():
 def new_tempfile_with_prefix(pre:str):
     tempfile.tempdir = "cache"
     try:
-        file = tempfile.NamedTemporaryFile(prefix=pre, delete=False)
+        file = tempfile.NamedTemporaryFile(mode='wt', prefix=pre, delete=False)
     finally:
         file.close()
     
@@ -24,7 +24,7 @@ def new_tempfile_with_prefix(pre:str):
 def new_tempfile_with_suffix(suf:str):
     tempfile.tempdir = "cache"
     try:
-        file = tempfile.NamedTemporaryFile(suffix=suf, delete=False)
+        file = tempfile.NamedTemporaryFile(mode='wt', suffix=suf, delete=False)
     finally:
         file.close()
     
@@ -33,7 +33,7 @@ def new_tempfile_with_suffix(suf:str):
 def new_tempfile_with_prefix_and_suffix(pre:str, suf:str):
     tempfile.tempdir = "cache"
     try:
-        file = tempfile.NamedTemporaryFile(prefix=pre, suffix=suf, delete=False)
+        file = tempfile.NamedTemporaryFile(mode='wt',prefix=pre, suffix=suf, delete=False)
     finally:
         file.close()
     
