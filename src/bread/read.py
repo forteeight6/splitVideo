@@ -14,4 +14,5 @@ def iterReadTxt():
             if local == choice:
                 with open(choice) as file:
                     for linha in file:
-                        yield linha
+                        # Por padrao strip remove os espaços.
+                        yield linha.strip()

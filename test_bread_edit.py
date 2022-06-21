@@ -1,4 +1,4 @@
-from pytest import mark
+# from pytest import mark
 from src.bread.edit import Edit, EditTxt
 from test_bread_add_addcontents import test_AddContents
 from test_bread_read import iterReadTxt_fake
@@ -14,20 +14,22 @@ from test_bread_read import iterReadTxt_fake
     posteriormente e por fim fazer a comparação se houve modificação.
 """
 
-@mark.skip(reason="Teste Incompleto")
+# @mark.skip(reason="Teste Incompleto")
 def test_Edit():
     """
         Este teste vai verificar se houve a edicao do arquivo teste.txt
     """
     test_AddContents()
-        
-    before = iterReadTxt_fake()
-    Edit("cache\\teste.txt", "teste2")
-    after = iterReadTxt_fake()
-    Edit("cache\\teste.txt", "teste1") # retornando ao resultado anterior.
     
-    print(next(before))
-    print(next(after))
+    Edit("cache\\teste.txt", "teste2")
+    before = next(iterReadTxt_fake())
+    # retornando ao resultado anterior.
+    Edit("cache\\teste.txt", "teste1") 
+    after = next(iterReadTxt_fake())
+
+    # print(before)
+    # print(after)
+    assert before != after
 
 
 if __name__ == "__main__":

@@ -18,4 +18,5 @@ def iterReadTxt_fake():
             if local == choice:
                 with open(choice) as file:
                     for linha in file:
-                        yield linha
+                        # Por padrão o strip revome todos os espaços
+                        yield linha.strip()
