@@ -21,7 +21,7 @@ def test_add_is_right():
         for _ in files:
             count += 1
     before_number_of_files_in_directory_cache = count
-    # print("before_number_of_files_in_directory_cache:", before_number_of_files_in_directory_cache)
+    print("before_number_of_files_in_directory_cache:", before_number_of_files_in_directory_cache)
     
     contents = "OK"
     Add(contents)
@@ -31,10 +31,6 @@ def test_add_is_right():
         for _ in files:
             count += 1
     after_number_of_files_in_directory_cache = count
-    # print("after_number_of_files_in_directory_cache:", after_number_of_files_in_directory_cache)
+    print("after_number_of_files_in_directory_cache:", after_number_of_files_in_directory_cache)
     
     assert after_number_of_files_in_directory_cache == (before_number_of_files_in_directory_cache + 1)
-    
-if __name__ == "__main__":
-    test_add_return_none()
-    test_add_is_right()
